@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+    
+        stage('Build the environment'){
+            steps {
+                sh '''
+                sudo ${WORKSPACE}/Script/sh/build.sh ${WORKSPACE}
+                '''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh '''
+                sudo ${WORKSPACE}/Script/sh/deploy.sh ${WORKSPACE}
+                '''
+            }
+        }
+        stage('Sync') {
+            steps {
+                sh '''
+                sudo ${WORKSPACE}/Script/sh/sync.sh ${WORKSPACE}
+                '''
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+     
+    }
+}
