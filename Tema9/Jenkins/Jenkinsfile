@@ -5,21 +5,21 @@ pipeline {
         stage('Build the environment'){
             steps {
                 sh '''
-                /var/lib/jenkins/workspace/teste-jenkins@script/bdbb79856b515f1affed826149d3ef073e97ec0b0b7b41b209bebdc9b5e457e5/Tema9/Script/sh/build.sh
+                ${WORKSPACE}/Tema9/Script/sh/enviroment.sh
                 '''
             }
         }
         stage('Deploy') {
             steps {
                 sh '''
-                /var/lib/jenkins/workspace/teste-jenkins@script/bdbb79856b515f1affed826149d3ef073e97ec0b0b7b41b209bebdc9b5e457e5/Tema9/Script/sh/deploy.sh
+                ${WORKSPACE}/Tema9/Script/sh/start.sh
                 '''
             }
         }
         stage('Sync') {
             steps {
                 sh '''
-                /var/lib/jenkins/workspace/teste-jenkins@script/bdbb79856b515f1affed826149d3ef073e97ec0b0b7b41b209bebdc9b5e457e5/Tema9/Script/sh/sync.sh
+                ${WORKSPACE}/Tema9/Script/sh/sync.sh
                 '''
             }
         }
