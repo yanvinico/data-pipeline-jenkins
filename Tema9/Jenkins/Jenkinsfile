@@ -5,21 +5,21 @@ pipeline {
         stage('Build the environment'){
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/build.sh
+                ${WORKSPACE}/Tema9/Script/sh/build.sh
                 '''
             }
         }
         stage('Deploy') {
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/deploy.sh
+                ${WORKSPACE}/Tema9/Script/sh/deploy.sh
                 '''
             }
         }
         stage('Sync') {
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/sync.sh
+                ${WORKSPACE}/Tema9/Script/sh/sync.sh
                 '''
             }
         }
