@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
     
-        stage('Build the environment'){
+        stage('Build'){
             steps {
                 sh '''
                 ${WORKSPACE}/Tema9/Script/sh/enviroment.sh
