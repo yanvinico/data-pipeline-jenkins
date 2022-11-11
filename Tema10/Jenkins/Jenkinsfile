@@ -4,7 +4,7 @@ pipeline {
         stage('Create final folder'){
             steps{
                 sh '''
-                ${WORKSPACE}/Script/sh/prepare.sh ${WORKSPACE}
+                ${WORKSPACE}/Script/sh/prepare.sh
                 '''
             }
         } 
@@ -18,14 +18,14 @@ pipeline {
         stage('Run container'){
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/container.sh ${WORKSPACE}
+                ${WORKSPACE}/Script/sh/container.sh
                 '''
             }
         }
         stage('Sync') {
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/sync.sh ${WORKSPACE}
+                ${WORKSPACE}/Script/sh/sync.sh
                 '''
             }
         }
