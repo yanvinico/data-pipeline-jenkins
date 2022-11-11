@@ -4,35 +4,35 @@ pipeline {
         stage('Create final folder'){
             steps{
                 sh '''
-                ${WORKSPACE}/Script/sh/prepare.sh
+                ./Script/sh/prepare.sh
                 '''
             }
         } 
         stage('Build image'){
             steps{
                 sh '''
-                ${WORKSPACE}/Script/sh/image.sh
+                ./Script/sh/image.sh
                 '''
             }
         } 
         stage('Run container'){
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/container.sh
+                ./Script/sh/container.sh
                 '''
             }
         }
         stage('Sync') {
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/sync.sh
+                ./Script/sh/sync.sh
                 '''
             }
         }
         stage('Cleanup') {
             steps {
                 sh '''
-                ${WORKSPACE}/Script/sh/cleanup.sh 
+                ./Script/sh/cleanup.sh 
                 '''
             }
         }
