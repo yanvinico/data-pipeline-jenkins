@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Create final folder'){
-            steps{
-                sh '''
-                ./Tema10/Script/sh/prepare.sh
-                '''
-            }
-        } 
         stage('Build image'){
             steps{
                 sh '''
