@@ -1,25 +1,38 @@
 pipeline {
     agent any
     stages {
-    
-        stage('Build'){
-            steps {
+        stage('Create final folder'){
+            steps{
                 sh '''
-                ${WORKSPACE}/Tema9/Script/sh/enviroment.sh
+                ${WORKSPACE}/Script/sh/prepare.sh ${WORKSPACE}
                 '''
             }
-        }
-        stage('Deploy') {
+        } 
+        stage('Build image'){
+            steps{
+                sh '''
+                ${WORKSPACE}/Script/sh/image.sh
+                '''
+            }
+        } 
+        stage('Run container'){
             steps {
                 sh '''
-                ${WORKSPACE}/Tema9/Script/sh/start.sh
+                ${WORKSPACE}/Script/sh/container.sh ${WORKSPACE}
                 '''
             }
         }
         stage('Sync') {
             steps {
                 sh '''
-                ${WORKSPACE}/Tema9/Script/sh/sync.sh
+                ${WORKSPACE}/Script/sh/sync.sh ${WORKSPACE}
+                '''
+            }
+        }
+        stage('Cleanup') {
+            steps {
+                sh '''
+                ${WORKSPACE}/Script/sh/cleanup.sh 
                 '''
             }
         }
