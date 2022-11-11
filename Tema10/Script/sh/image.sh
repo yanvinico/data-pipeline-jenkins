@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t Tema10 ./Tema10
+docker build -t tema10 ./Tema10
