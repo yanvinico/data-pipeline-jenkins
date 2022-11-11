@@ -1,3 +1,2 @@
 #!/bin/bash
-docker build -t tema10 .
-docker container prune -f
+docker build -t tema10 ./tema10
