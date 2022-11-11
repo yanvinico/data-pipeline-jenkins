@@ -5,22 +5,25 @@ pipeline {
         stage('Build'){
             steps {
                 sh '''
-                ${WORKSPACE}/Tema9/Script/sh/enviroment.sh
+                ./Tema9/Script/sh/enviroment.sh
                 '''
             }
         }
         stage('Deploy') {
             steps {
                 sh '''
-                ${WORKSPACE}/Tema9/Script/sh/start.sh
+                ./Tema9/Script/sh/start.sh
                 '''
             }
         }
         stage('Sync') {
             steps {
-                sh '''
-                ${WORKSPACE}/Tema9/Script/sh/sync.sh
-                '''
+                withAWS(credentials: 'aws-credentials') {
+                   sh '''
+                    ./Tema9/Script/sh/sync.sh
+                ''' 
+                }
+                
             }
         }
     }
