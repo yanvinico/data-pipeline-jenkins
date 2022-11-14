@@ -70,8 +70,7 @@ Executa os seguintes passos:
 
 2- Crie um ambiente virtual e instale o requirements.txt dentro dele com o comando pip install -r requirements.txt
 
-Dentro dos arquivos .sh:
-3- Mude os caminhos para os quais você vai usar na sua máquina 
+3 - Foi utilizado o plugin Pipeline: AWS Steps para configurar uma credencial com as AWS keys, então basta ir ao Jenkinsfile, na parte "withAWS(credentials: 'aws-credentials')" do Stage 'Sync' e colocar suas chaves registradas no jenkins.
 
 
 
