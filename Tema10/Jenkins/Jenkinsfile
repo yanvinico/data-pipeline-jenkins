@@ -4,7 +4,6 @@ pipeline {
         stage('Build image'){
             steps{
                 sh '''
-                chmod +x ./Tema10/Script/sh/image.sh
                 ./Tema10/Script/sh/image.sh
                 '''
             }
@@ -12,23 +11,22 @@ pipeline {
         stage('Run container'){
             steps {
                 sh '''
-                chmod +x ./Tema10/Script/sh/container.sh
                 ./Tema10/Script/sh/container.sh
                 '''
             }
         }
         stage('Sync') {
             steps {
-                sh '''
-                chmod +x ./Tema10/Script/sh/sync.sh
-                ./Tema10/Script/sh/sync.sh
-                '''
+                withAWS(credentials: 'aws-credentials') {
+                   sh '''
+                    ./Tema10/Script/sh/sync.sh
+                ''' 
+                } 
             }
         }
         stage('Cleanup') {
             steps {
                 sh '''
-                chmod +x ./Tema10/Script/sh/cleanup.sh
                 ./Tema10/Script/sh/cleanup.sh 
                 '''
             }

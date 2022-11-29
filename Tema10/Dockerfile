@@ -1,7 +1,7 @@
 FROM python:3
 
 WORKDIR /Tema10/
-COPY . /Tema10/
+COPY . .
 
 RUN pip install -r ./Script/requirements.txt
 

@@ -61,9 +61,10 @@ Desative Lightweight checkout
 ## Jenkinsfile
 Executa os seguintes passos:
 **Checkout SCM.** Faz o pull do repositório para a EC2(configurado no próprio jenkins)
-**Build.** Cria o ambiente e instala as dependências necessárias
-**Deploy.** Executa o código na EC2 a partir do main.py
+**Build Image.** Cria a imagem docker 
+**Run container.** Cria o ambiente, instala as dependências necessárias e roda o container
 **Sync.** Faz a sincronização do arquivo com os tweets gerado com o bucket s3
+**Cleanup** Apaga a imagem e o container 
 
 ## Notas
 1 - Altere as chaves de acesso à API para as suas chaves, no arquivo Tokens, localizado no caminho ‘./twitter/Tokens.py’.
