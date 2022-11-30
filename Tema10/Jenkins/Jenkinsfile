@@ -4,6 +4,7 @@ pipeline {
         stage('Build image'){
             steps{
                 sh '''
+                ls -lha ./Tema10/Script/sh
                 ./Tema10/Script/sh/image.sh
                 '''
             }
