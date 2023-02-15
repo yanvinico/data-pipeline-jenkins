@@ -1,7 +1,7 @@
 FROM python:3
 
-WORKDIR /Tema11/
-COPY . /Tema11/
+WORKDIR /pipeline-project/
+COPY . .
 
 RUN pip install -r ./Script/requirements.txt
 
