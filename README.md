@@ -1,5 +1,5 @@
 ## Objetivo
-Automatizar o processo de deploy do código puxando o código do github e fazendo o deploy dentroda EC2
+Automatizar o processo de deploy do código, trazendo o mesmo do github e fazendo o deploy dentro de uma EC2
 
 ## Pré requisitos
 python 3.10
@@ -8,6 +8,10 @@ virtualenv
 AWS CLI
 Jenkins
 Java
+Docker
+
+### Instalação do docker
+Para instalar o docker siga os passos na documentação: https://docs.docker.com/engine/install/ubuntu/
 
 ## Instalando o Jenkins
 Para instalar o jenkins na máquina siga os seguintes passos:
